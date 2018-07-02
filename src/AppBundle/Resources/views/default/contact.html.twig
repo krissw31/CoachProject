@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block body%}
+    <div class="container-fluid" style="background-color: rgba(212,214,208,0.98)">
+
+        <hr/>
+    <div class="container" style="background-color: rgba(212,214,208,0.98)">
+        <div class="row">
+            <div class="col-md-9 col-lg-10 main align-content-center">
+            <h2 class="sub-header mt-5  col-lg-10">Formulaire de contact:</h2>
+            </div>
+        </div>
+            <hr/>
+        {{ form_start (form) }}
+           <!-- <div class="form-group row">
+                <label for="nom" class="col-sm-2 col-form-label">Nom:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="nom" placeholder="nom">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="prenom" class="col-sm-2 col-form-label">Prénom:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="prenom" placeholder="prenom">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label">Email:</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" placeholder="email">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="titre" class="col-sm-2 col-form-label">Titre:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="titre" placeholder="titre">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Commentaire" class="col-sm-2 col-form-label">Commentaire:</label>
+                <div class="col-sm-10">
+                    <textarea type="text" class="form-control" id="commentaire" placeholder="commentaire" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">Recevoir la newsletter:</div>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="newsletter">
+                        <label class="form-check-label" for="newsletter">
+                            oui
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-info" value="submit">Envoyer</button>
+                </div>
+            </div> -->
+        {{ form_widget(form) }}
+        <button type="button" class="btn btn-info">Envoyer</button>
+        {{ form_end(form) }}
+        <hr>
+
+    </div>
+    </div>
+
+
+
+
+{% endblock %}

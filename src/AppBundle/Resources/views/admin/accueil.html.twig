@@ -1,0 +1,60 @@
+{% extends "base-admin.html.twig" %}
+{% block content %}
+    <div class="col-md-9 col-lg-10 main">
+        <h1 class="sub-header mt-5"> Accueil</h1>
+        <h2 class="lead hidden-xs-down">Informations générales du site Coach:</h2>
+
+
+        <div class="row mb-3">
+            <div class="col-xl-4 col-lg-6">
+                <a href={{ path("adminContact") }}>
+                <div class="card card-inverse card-success">
+
+                    <div class="card-block bg-success">
+                        <div class="rotate">
+                            <i class="fa fa-user fa-5x ">{{  nbContacts }}</i>
+                        </div>
+                        <h6 class="text-uppercase">Contacts</h6>
+                        <h2 class="display-1"></h2>
+
+                    </div>
+
+                </div>
+                </a>
+
+            </div>
+                <div class="col-xl-4 col-lg-6">
+                    <div class="card card-inverse card-danger">
+                        <div class="card-block bg-danger">
+                            <div class="rotate">
+                                <i class="fa fa-comments fa-5x"></i>
+                            </div>
+                            <h6 class="text-uppercase">Messages postés</h6>
+                            <h1 class="display-1"></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6">
+                    <div class="card card-inverse card-warning">
+                        <div class="card-block bg-warning">
+                            <div class="rotate">
+                                <i class="fa fa-newspaper-o fa-5x"></i>
+                            </div>
+                            <h6 class="text-uppercase">Newsletter</h6>
+                            <h1 class="display-1"></h1>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <hr>
+        <h2 class="lead hidden-xs-down">Derniers messages postés</h2>
+        <hr>
+        <h2 class="lead hidden-xs-down">Dernières newsletter publiés</h2>
+        <hr>
+        <h2 class="lead hidden-xs-down"> dernières activités publiés</h2>
+        <hr>
+
+    </div>
+
+
+{% endblock %}

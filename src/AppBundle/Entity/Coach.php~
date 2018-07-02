@@ -1,0 +1,37 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: kriss
+ * Date: 29/06/2018
+ * Time: 11:18
+ */
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="coach")
+ * @package AppBundle\Entity
+ */
+class Coach
+{
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="bigint")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string",  length=150, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $content;
+
+}
