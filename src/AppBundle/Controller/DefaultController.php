@@ -8,8 +8,15 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
+
     /**
-     * @Route("/", name="accueil")
+     * @Route("/", name="base")
+     */
+    public function baseAction(Request $request){
+        return $this->render('base.html.twig');
+    }
+    /**
+     * @Route("/accueil", name="accueil")
      */
     public function indexAction(Request $request)
     {

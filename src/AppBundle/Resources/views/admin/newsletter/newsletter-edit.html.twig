@@ -1,0 +1,19 @@
+{% extends "base-admin.html.twig" %}
+{% block content %}
+<div class="container">
+
+    <h1 class="text-muted">Newsletter</h1>
+    <hr>
+    <div class="col-xl-4 col-lg-6">
+        <div class="card card-inverse card-info">
+                    <i class="fa fa-user fa-5x"></i>
+                    <h3 class="text-uppercase"> {{ titreNewsletter }} {{ dateNewsletter|date("Y/m/d h:i:s") }}</h3>
+                </div>
+
+    </div>
+    <hr>
+    <h3 class="text-muted">Informations générales:</h3>
+    <div class="col-sm-8" >
+    </div>
+</div>
+{% endblock %}

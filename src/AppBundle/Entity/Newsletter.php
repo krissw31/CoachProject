@@ -44,6 +44,10 @@ class Newsletter
      */
     private $send;
 
+    public function __construct()
+    {
+        $this->date = new \DateTime('now');
+    }
 
     /**
      * Get id

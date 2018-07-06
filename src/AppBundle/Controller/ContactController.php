@@ -44,7 +44,7 @@ class ContactController extends Controller
      * @param Request $request
      * @Route("/admin/contact/edit{id}", name="contact.edit")
      */
-    public function editContact(Contact $contact, Request $request){
+    public function editAction(Contact $contact, Request $request){
 
 
 

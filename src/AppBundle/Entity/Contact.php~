@@ -49,7 +49,12 @@ class Contact
 
     /**
      * @ORM\Column(type="boolean")
+     *
+     *
      */
     private $sendNews;
+
+
+
 
 }

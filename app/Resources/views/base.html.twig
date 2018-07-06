@@ -34,11 +34,23 @@
                     <li class="nav-item">
                         <a class="nav-link" href={{ path ("quisuisje") }}>Qui suis-je?</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href={{ path ("coaching") }}>Présentation-Coaching</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href={{ path ("coaching") }}, id = "navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Présentation-Coaching</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item">Définition</a>
+                            <a class="dropdown-item" href="#">Thérapies?</a>
+                            <a class="dropdown-item" href="#">Code de déontologie</a>
+
+                        </div>
+
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href={{ path ("activity") }}>Activités</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href={{ path ("activity") }}, id = "navabarActivity" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Activités</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarActivity">
+                            <a class="dropdown-item" href="#">Coaching scolaire</a>
+                            <a class="dropdown-item" href="#">Coaching individuel</a>
+                            <a class="dropdown-item" href="#">Coaching professionnel</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href={{ path ("contact") }}>Contact</a>
@@ -47,20 +59,66 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="" data-target="#myModal" data-toggle="modal">deconnexion</a>
+                        <a class="nav-link" href="" data-target="#myModal" data-toggle="modal">Rechercher</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </div>
+    <hr>
+    <hr>
 
-        {% block body %}{% endblock %}
+    <div class="header clearfix">
+        <hr>
+
+    </div>
+
+    <div class="row marketing">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer class="footer">
+        {% block footer %}
+                <div class="container">
+                    <hr>
+                    <div class="row justify-content-center">
+                        <div class="title col-12 col-lg-8">
+                            <h3 class="align center ">
+                                Souscrire à la Newsletter
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-lg-6 col-md-8" data-form-type="formoid">
+
+                       {#     {{ form_start (form) }}
+                            {{ form_widget(form) }}
+                            <button type="button" class="btn btn-info">Envoyer</button>
+                            {{ form_end(form) }}
+
+                            <div class="mbr-subscribe input-group">
+
+                            </div>#}
+                        </div>
+
+                    </div>
+                    <hr>
+                    <p>&copy; Kriss Company, Dev.</p>
+                    <hr>
+
+                </div>
+        {% endblock %}
+
+    </footer>
+
+
     {% block javascripts %}
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     {% endblock %}
+
 
     </body>
 </html>

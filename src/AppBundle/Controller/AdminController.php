@@ -44,16 +44,6 @@ class AdminController extends Controller
             );
     }
 
-    /**
-     * @Route("/admin/newsletter", name="adminNewsletter")
-     *
-     */
-    public function  adminNewsletter(){
-        //$newsletter = $this->getDoctrine()->getRepository("AppBundle:Newsletter")->findAll();
-
-        return $this->render('App/admin/newsletter/newsletter.html.twig');
-
-    }
 
     /**
      * @Route("/admin/activity", name="adminActivity")

@@ -49,6 +49,8 @@ class Contact
 
     /**
      * @ORM\Column(type="boolean")
+     *
+     *
      */
     private $sendNews;
 
@@ -56,6 +58,10 @@ class Contact
     {
         $this->date = new \DateTime('now');
     }
+
+
+
+
 
 
     /**
