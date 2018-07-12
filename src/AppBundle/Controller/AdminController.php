@@ -45,13 +45,6 @@ class AdminController extends Controller
     }
 
 
-    /**
-     * @Route("/admin/activity", name="adminActivity")
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function adminActivity(){
-        return $this->render('@App/admin/activity/activity.html.twig');
-    }
 
 
 
