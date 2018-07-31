@@ -18,15 +18,18 @@ class AdminController extends Controller
 {
 
     /**
-     * @Route("/admin", name="adminAccueil")
+     * @Route("/admin/", name="adminAccueil")
      */
     public function adminAccueil(){
 
         $contacts = $this->getDoctrine()->getRepository("AppBundle:Contact")->findAll();
         $nbContacts=count($contacts);
+        $newsletters = $this->getDoctrine()->getRepository("AppBundle:Newsletter")->findAll();
+        $nbNewsletters = count($newsletters);
         return $this->render('@App/admin/accueil.html.twig',
             [
-                "nbContacts"=>$nbContacts
+                "nbContacts"=>$nbContacts,
+                "nbNewsletters"=>$nbNewsletters
             ]);
 
 

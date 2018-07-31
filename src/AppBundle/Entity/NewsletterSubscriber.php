@@ -30,12 +30,6 @@ class NewsletterSubscriber
      */
     private $email;
 
-    /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Contact")
-     *@ORM\JoinColumn(name="contact", nullable=true)
-     */
-    private $contact;
-
 
 
     /**

@@ -32,6 +32,10 @@ class NewsletterController extends Controller
         if($form->isSubmitted() && $form->isValid()){
             $em = $this->getDoctrine()->getManager();
             $em->persist($newsletter);
+
+            if($newsletter->getSend() === true){
+
+            }
             $em->flush(); //sauvegarder
 
             return $this->redirectToRoute("adminNewsletter");
@@ -59,12 +63,24 @@ class NewsletterController extends Controller
         $dateNewsletter = $newsletter->getDate();
         $sendNewsletter = $newsletter->getSend();
 
+        $form = $this->createForm(NewsletterType::class, $newsletter);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()&& $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($newsletter);
+            $em->flush();
+
+            return $this->redirectToRoute("adminNewsletter");
+        }
+
         return $this->render('@App/admin/newsletter/newsletter-edit.html.twig',
         [
             "titreNewsletter"=>$titreNewsletter,
             "contentNewsletter"=>$contentNewsletter,
             "dateNewsletter"=>$dateNewsletter,
-            "sendNewsletter"=>$sendNewsletter
+            "sendNewsletter"=>$sendNewsletter,
+            "form" => $form->createView()
         ]
 
         );

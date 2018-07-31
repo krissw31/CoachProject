@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\AppBundle;
 use AppBundle\Entity\Contact;
+use AppBundle\Entity\NewsletterSubscriber;
 use AppBundle\Form\ContactType;
 use Doctrine\ORM\Mapping\Id;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -13,6 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ContactController extends Controller
 {
+
     /**
      * @param Request $request
      * @Route("/contact", name="contact")
@@ -22,15 +24,25 @@ class ContactController extends Controller
         $contact = new Contact();
        // $contact->setDate(new \DateTime('now',null));
 
+
         $form = $this->createForm(ContactType::class, $contact); //l'instancier
         $form->handleRequest($request); //persister
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($contact);
+
+            if ($contact->getSendNews() === true){
+                $newsletterSubscriber = new NewsletterSubscriber();
+                $newsletterSubscriber->setEmail($contact->getEmail());
+                $em->persist($newsletterSubscriber);
+            }
+
             $em->flush(); //sauvegarder
 
             return $this->redirectToRoute("accueil");
         }
+
+
 
         return $this->render('@App/default/contact.html.twig',
             [
@@ -54,6 +66,12 @@ class ContactController extends Controller
         $emailContact = $contact->getEmail();
         $messageContact = $contact->getComment();
         $sendNews = $contact->getSendNews();
+      //  if ($contact->getSendNews() === "1"){
+       //     $sendNews = "oui";
+       // }
+      //  else {
+        //    $sendNews ="non";
+       // }
 
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);

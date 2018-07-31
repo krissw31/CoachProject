@@ -1,0 +1,38 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "base-admin.html.twig" %}
+
+{% block content %}
+
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <div class="jumbotron">
+        <form action="{{ path("fos_user_security_check") }}" method="post" class="text-center">
+            {% if csrf_token %}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+            {% endif %}
+
+            <div class="form-group">
+                <label for="username">{{ 'Nom'|trans }}</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}" required="required"/>
+            </div>
+
+            <div class="form-group">
+                <label for="password">{{ 'Mot de passe'|trans }}</label>
+                <input type="password" id="password" name="_password" required="required"/>
+            </div>
+
+            <div class="form-check">
+                <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
+                <label for="remember_me">{{ 'Se souvenir de moi?'|trans }}</label>
+            </div>
+
+            <br>
+
+            <input type="submit" id="_submit" name="_submit" value="{{ 'Valider'|trans }}"
+                   class="btn btn-info"/>
+        </form>
+    </div>
+
+{% endblock %}

@@ -17,8 +17,8 @@ class NewsletterType extends AbstractType
         $builder
             ->add('title',null, ["label"=>"Titre:"])
             ->add('content',null, ["label"=>"Contenu:"])
-            ->add('send',null,["label"=>"Voulez-vous l'envoyer aux utilisateurs une fois créée ?"])
-            ->add('validate',SubmitType::class,["label"=>"Créer", "attr"=>["class"=>"btn btn-info"]]);
+            ->add('send',null,["label"=>"Voulez-vous l'envoyer aux utilisateurs une fois créée ?"]);
+
 
     }/**
      * {@inheritdoc}

@@ -2,18 +2,25 @@
 {% block content %}
 <div class="container">
 
-    <h1 class="text-muted">Newsletter</h1>
+    <h1 class="text-muted">Newsletter : {{ titreNewsletter }}</h1>
     <hr>
-    <div class="col-xl-4 col-lg-6">
-        <div class="card card-inverse card-info">
-                    <i class="fa fa-user fa-5x"></i>
-                    <h3 class="text-uppercase"> {{ titreNewsletter }} {{ dateNewsletter|date("Y/m/d h:i:s") }}</h3>
-                </div>
 
-    </div>
     <hr>
     <h3 class="text-muted">Informations générales:</h3>
     <div class="col-sm-8" >
-    </div>
+
+        <p>(Message posté le <small>{{ dateNewsletter|date("Y/m/d h:i:s") }})</small>.</p>
+
+        <p style="background-color: #C82829">Modifier à l'intérieur des encadrers suivants puis valider.</p>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+
+
+        <button type="submit" class="btn btn-outline-success">Modifier</button>
+        <a href="{{ path('adminNewsletter') }}" class="btn btn-outline-info">Retour</a>
+        <button type="reset" class="btn btn-outline-danger">Supprimer</button>
+
+        {{ form_end(form) }}
+        <hr>
 </div>
 {% endblock %}
