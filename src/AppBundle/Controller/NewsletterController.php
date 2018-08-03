@@ -84,11 +84,25 @@ class NewsletterController extends Controller
         ]
 
         );
+    }
 
+    /**
+     *
+     * @Route("/admin/newsletter/delete{id}", name="newsletter.delete")
+     */
+    public function deleteNewsletterAction($id)
+    {
+        $newsletter = $this->getDoctrine()->getRepository(Newsletter::class)->find($id);
+        if ($newsletter!== null){
+            $em = $this->getDoctrine()->getManager();
+             $em->remove($newsletter);
+             $em->flush();
+             return $this->redirectToRoute("adminNewsletter");
+        }
 
-
-
+        return $this->redirectToRoute("adminNewsletter");
 
     }
+
 
 }

@@ -66,12 +66,7 @@ class ContactController extends Controller
         $emailContact = $contact->getEmail();
         $messageContact = $contact->getComment();
         $sendNews = $contact->getSendNews();
-      //  if ($contact->getSendNews() === "1"){
-       //     $sendNews = "oui";
-       // }
-      //  else {
-        //    $sendNews ="non";
-       // }
+
 
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);

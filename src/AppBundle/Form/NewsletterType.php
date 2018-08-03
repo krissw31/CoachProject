@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,7 +18,8 @@ class NewsletterType extends AbstractType
         $builder
             ->add('title',null, ["label"=>"Titre:"])
             ->add('content',null, ["label"=>"Contenu:"])
-            ->add('send',null,["label"=>"Voulez-vous l'envoyer aux utilisateurs une fois créée ?"]);
+            ->add('send',null, ["label"=>"Voulez-vous l'envoyer aux utilisateurs une fois créée ?"]);
+          //  ->add("reset", ResetType::class, ["label"=>"Supprimer", "attr"=>["class"=>"btn btn-info"]]);
 
 
     }/**
