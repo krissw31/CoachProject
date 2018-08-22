@@ -15,7 +15,8 @@ class NewsletterSubscriberType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('email',null, ["label"=>"Email"]);
+        $builder->add('email',null, ["label"=>"Email"])
+         ->add("validate",SubmitType::class, ["label"=>"Envoyer", "attr"=>["class"=>"btn btn-info"]]);;
 
     }/**
      * {@inheritdoc}

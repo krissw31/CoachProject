@@ -1,15 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block content%}
-    <div class="jumbotron jumbotron-fluid " >
 
 
+ <hr>
     <div class="container">
-        <div class="row">
-            <div class="col-md-9 col-lg-10 main align-content-center">
-            <h2 class="sub-header mt-5  col-lg-10">Formulaire de contact:</h2>
-            </div>
-        </div>
+        <div class="jumbotron">
+         <div class="row">
+
+               <!-- <div class="col-md-9 col-lg-10 main align-content-center"> -->
+                    <h2 class="sub-header mt-5  col-lg-10">Formulaire de contact:</h2>
+                </div>
+
             <hr/>
         {{ form_start (form) }}
            <!-- <div class="form-group row">
@@ -62,10 +64,12 @@
         {{ form_widget(form) }}
 
         {{ form_end(form) }}
-        <hr>
+
+        </div>
+
 
     </div>
-    </div>
+
 
 
 

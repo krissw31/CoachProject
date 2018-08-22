@@ -48,5 +48,35 @@ class NewsletterSubscriberController extends Controller
 
         }
 
+        /**
+         * @param Request $request
+         * @Route("/newsletteSub", name="newsSub")
+         */
+        public function newsletterSubAction(Request $request)
+        {
+            $newsSub = new NewsletterSubscriber();
+
+
+            $form = $this->createForm(NewsletterSubscriberType::class, $newsSub); //l'instancier
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($newsSub);
+                $em->flush(); //sauvegarder
+
+                return $this->redirectToRoute("accueil");
+            }
+
+
+
+            return $this->render('@App/default/newsletterForm.html.twig',
+                [
+                    "form" => $form->createView(),
+
+                ]);
+
+
+        }
+
 
 }

@@ -53,5 +53,14 @@ class DefaultController extends Controller
         return $this->render('@App/default/me.html.twig');
     }
 
+    /**
+     * @Route("/newsletterSub", name="newsSub")
+     *
+     */
+    public function newsSubAction(Request $request)
+    {
+        return $this->render('@App/default/newsletterForm.html.twig');
+    }
+
 
 }
