@@ -7,7 +7,9 @@
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    <div class="jumbotron">
+ <hr>
+    <hr>
+    <div class="jumbotron col-lg-12">
         <form action="{{ path("fos_user_security_check") }}" method="post" class="text-center">
             {% if csrf_token %}
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
@@ -34,5 +36,6 @@
                    class="btn btn-info"/>
         </form>
     </div>
+
 
 {% endblock %}

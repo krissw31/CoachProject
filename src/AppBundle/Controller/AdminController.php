@@ -9,6 +9,10 @@
 namespace AppBundle\Controller;
 
 
+use AppBundle\AppBundle;
+use AppBundle\Entity\Newsletter;
+use AppBundle\Repository\ContactRepository;
+use AppBundle\Repository\NewsletterRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,10 +30,16 @@ class AdminController extends Controller
         $nbContacts=count($contacts);
         $newsletters = $this->getDoctrine()->getRepository("AppBundle:Newsletter")->findAll();
         $nbNewsletters = count($newsletters);
+        $lastNewslettersEdit = $this->getDoctrine()->getRepository(Newsletter::class)->findLastNewsEdit();
+
+       // dump($lastNewslettersEdit); die();
+
+        $nbnewsLast = count($lastNewslettersEdit);
         return $this->render('@App/admin/accueil.html.twig',
             [
                 "nbContacts"=>$nbContacts,
-                "nbNewsletters"=>$nbNewsletters
+                "nbNewsletters"=>$nbNewsletters,
+                "nbnewsLast"=>$nbnewsLast,
             ]);
 
 

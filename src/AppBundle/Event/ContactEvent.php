@@ -13,18 +13,28 @@ use Symfony\Component\EventDispatcher\Event;
 class ContactEvent extends Event
 {
     /*
-     * @var Contacts
+     * @var Contact
      */
-    private $contacts;
+    private $contact;
 
     /**
      * ContactEvent constructor.
      * @param $contacts
      */
-    public function __construct(Contact $contacts)
+    public function __construct(Contact $contact)
     {
-        $this->contacts = $contacts;
+        $this->contact = $contact;
     }
+
+    /**
+     * @return Contact
+     */
+    public function getContact()
+    {
+        return $this->contact;
+    }
+
+
 
 
 }

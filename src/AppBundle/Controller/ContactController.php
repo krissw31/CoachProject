@@ -3,8 +3,10 @@
 namespace AppBundle\Controller;
 
 use AppBundle\AppBundle;
+use AppBundle\AppBundleEvents;
 use AppBundle\Entity\Contact;
 use AppBundle\Entity\NewsletterSubscriber;
+use AppBundle\Event\ContactEvent;
 use AppBundle\Form\ContactType;
 use Doctrine\ORM\Mapping\Id;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -28,6 +30,13 @@ class ContactController extends Controller
         $form = $this->createForm(ContactType::class, $contact); //l'instancier
         $form->handleRequest($request); //persister
         if ($form->isSubmitted() && $form->isValid()) {
+
+            // Créer un objet Event
+            $event = new ContactEvent($contact);
+            $this->get('event_dispatcher')->dispatch(AppBundleEvents::ON_CONTACT, $event);
+
+            // $this->>get('event_dispatcher)->send()
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($contact);
 
@@ -35,6 +44,10 @@ class ContactController extends Controller
                 $newsletterSubscriber = new NewsletterSubscriber();
                 $newsletterSubscriber->setEmail($contact->getEmail());
                 $em->persist($newsletterSubscriber);
+
+
+
+
             }
 
             $em->flush(); //sauvegarder
@@ -75,6 +88,9 @@ class ContactController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($contact);
             $em->flush();
+
+
+
 
             return $this->redirectToRoute("adminContact");
         }
