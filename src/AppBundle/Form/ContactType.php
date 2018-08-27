@@ -22,8 +22,8 @@ class ContactType extends AbstractType //classe qui permet de générer un formu
             ->add('email', null, ["label"=>"Email:"])
             ->add('title', null, ["label"=>"Sujet:"])
             ->add('comment', null, ["label"=>"Contenu"])
-            ->add('sendNews', null, ["label"=>"Recevoir la Newsletter"]);
-          //  ->add("validate",SubmitType::class, ["label"=>"Envoyer", "attr"=>["class"=>"btn btn-info"]]);
+            ->add('sendNews', null, ["label"=>"Recevoir la Newsletter"])
+            ->add("validate",SubmitType::class, ["label"=>"Envoyer", "attr"=>["class"=>"btn btn-info"]]);
     }/**
      * {@inheritdoc}
      */

@@ -17,6 +17,7 @@ class ContactEvent extends Event
      */
     private $contact;
 
+
     /**
      * ContactEvent constructor.
      * @param $contacts
@@ -33,8 +34,5 @@ class ContactEvent extends Event
     {
         return $this->contact;
     }
-
-
-
 
 }

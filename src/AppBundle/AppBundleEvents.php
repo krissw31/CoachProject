@@ -5,5 +5,6 @@ namespace AppBundle;
 
 final class AppBundleEvents{
     const  ON_CONTACT = "on.contact";
+    const ON_CONTACT_NEWS = "on.contact.news";
 }
 

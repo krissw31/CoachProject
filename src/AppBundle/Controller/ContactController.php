@@ -35,8 +35,9 @@ class ContactController extends Controller
             $event = new ContactEvent($contact);
             $this->get('event_dispatcher')->dispatch(AppBundleEvents::ON_CONTACT, $event);
 
-            // $this->>get('event_dispatcher)->send()
 
+          //$this->get('event_dispatcher)->send();
+/*
             $em = $this->getDoctrine()->getManager();
             $em->persist($contact);
 
@@ -44,13 +45,9 @@ class ContactController extends Controller
                 $newsletterSubscriber = new NewsletterSubscriber();
                 $newsletterSubscriber->setEmail($contact->getEmail());
                 $em->persist($newsletterSubscriber);
-
-
-
-
             }
 
-            $em->flush(); //sauvegarder
+            $em->flush(); //sauvegarder*/
 
             return $this->redirectToRoute("accueil");
         }
