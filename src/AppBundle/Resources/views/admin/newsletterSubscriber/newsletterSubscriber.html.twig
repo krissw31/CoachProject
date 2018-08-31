@@ -13,7 +13,7 @@
                             <th style="width: 15%">id</th>
                             <th style="width: 30%">Mail</th>
 
-                            <th  style="width: 25%" >Actions</th>
+                            <th  style="width: 25%" >Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -27,13 +27,7 @@
 
                                 <td class="text-center">
                                     <div class="btn-group">
-                                        <button type="button" class="btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Actions
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a href=""><button class="dropdown-item btn-sm" type="button">Editer/Modifier</button></a>
-                                            <a href=""><button class="dropdown-item btn-sm" type="button">Supprimer</button></a>
-                                        </div>
+                                       <a href="{{ path('newsletterSub.delete',{"id":newsSubscriber.id}) }}"> <button class="btn btn-info" type="button">Supprimer</button></a>
                                     </div>
                                 </td>
                             </tr>

@@ -3,6 +3,7 @@
 namespace AppBundle\EventListener;
 
 
+use AppBundle\Entity\Newsletter;
 use AppBundle\Entity\NewsletterSubscriber;
 use Symfony\Bridge\Doctrine\RegistryInterface as Doctrine;
 use AppBundle\AppBundleEvents;
@@ -36,8 +37,8 @@ class ContactSubscriber implements EventSubscriberInterface
                 ["handleContact",10],
                 ["handleNewsletter",-10]
             ],
-            //AppBundleEvents::XXXXX=> ["xxxxxx",10]
-            //AppBundleEvents::ON_CONTACT => "handleContact",
+           // AppBundleEvents::ON_CONTACT_DELETE_NEWS=> ["xxxxxx",10],
+            AppBundleEvents::ON_ADMIN_CONTACT => ["handleNewsletter"],
             //AppBundleEvents::ON_CONTACT => "handleNewsletter"
         ];
     }
@@ -63,7 +64,11 @@ class ContactSubscriber implements EventSubscriberInterface
             $newsletterSubscriber = new NewsletterSubscriber();
             $newsletterSubscriber->setEmail($contact->getEmail());
             $em->persist($newsletterSubscriber);
+
         }
+
+
+
 
         $em->flush(); //sauvegarder
     }
@@ -73,4 +78,21 @@ class ContactSubscriber implements EventSubscriberInterface
 
         $this->mailer;
     }
+    public function deleteSendNewsletter(ContactEvent $event, NewsletterSubscriber $newsletterSubscriber)
+    {
+
+
+       /* $em =$this->doctrine->getManager();
+        $contact = $event->getContact();
+        $newsletterSubscriber = $this->doctrine->getRepository(NewsletterSubscriber::class)
+                                                ->findBy(['email' => $contact->getEmail()]);
+        //si la newsletter est coché false sur le contact
+         if($contact->getSendNews() === false){
+             //je supprime l'email de newsletterSubscriber;
+             $em = $this->doctrine->getManager();
+             $em->remove($newsletterSubscriber);
+         }
+
+        $em->flush();
+   */ }
 }

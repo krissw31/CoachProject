@@ -28,4 +28,6 @@ class NewsletterRepository extends EntityRepository
 
     }
 
+
+
 }

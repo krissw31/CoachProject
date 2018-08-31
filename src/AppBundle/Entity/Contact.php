@@ -47,6 +47,7 @@ class Contact
      * @ORM\Column(type="string", length=150)
      */
     private $title;
+
     /**
      * @ORM\Column(type="text")
      */

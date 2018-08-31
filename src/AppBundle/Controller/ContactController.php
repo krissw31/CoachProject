@@ -63,11 +63,11 @@ class ContactController extends Controller
     }
 
     /**
+     *
      * @param Request $request
      * @Route("/admin/contact/edit{id}", name="contact.edit")
      */
     public function editAction(Contact $contact, Request $request){
-
 
 
         $nomContact = $contact->getName();
@@ -77,15 +77,17 @@ class ContactController extends Controller
         $messageContact = $contact->getComment();
         $sendNews = $contact->getSendNews();
 
-
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()&& $form->isValid()){
+       /* if ($form->isSubmitted()&& $form->isValid()){
             $em = $this->getDoctrine()->getManager();
             $em->persist($contact);
-            $em->flush();
+            $em->flush();*/
 
+            if ($form->isSubmitted()&& $form->isValid()){
+                $event = new ContactEvent($contact);
+                $this->get('event_dispatcher')->dispatch(AppBundleEvents::ON_ADMIN_CONTACT, $event);
 
 
 

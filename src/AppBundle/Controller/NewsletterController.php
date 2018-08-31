@@ -9,6 +9,8 @@
 namespace AppBundle\Controller;
 
 use AppBundle\AppBundle;
+use AppBundle\AppBundleEvents;
+use AppBundle\Event\NewsletterEvent;
 use AppBundle\Entity\Newsletter;
 use AppBundle\Form\NewsletterType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -30,6 +32,8 @@ class NewsletterController extends Controller
         $form = $this->createForm(NewsletterType::class, $newsletter); //instanciation
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
+           // $event = new NewsletterEvent();
+          //  $this->get('event_dispatcher')->dispatch(AppBundleEvents::ON_NEWSLETTER, $newsletter);
             $em = $this->getDoctrine()->getManager();
             $em->persist($newsletter);
 

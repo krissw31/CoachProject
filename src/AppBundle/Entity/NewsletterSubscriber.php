@@ -80,13 +80,5 @@ class NewsletterSubscriber
         return $this;
     }
 
-    /**
-     * Get contact
-     *
-     * @return \AppBundle\Entity\Contact
-     */
-    public function getContact()
-    {
-        return $this->contact;
-    }
+
 }
